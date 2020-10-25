@@ -48,5 +48,9 @@ class Protein():
         for atom in self.atoms:
             atom.translate(module, direction)
 
+    def rotate(self):
+        for atom in self.atoms:
+            atom.rotate()
+
 
 

@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 import clases_python.atom as at
 import clases_python.protein as pt
+from clases_python import atom
 
 
 def read_file_pdb(file):
@@ -37,7 +38,12 @@ if __name__ == "__main__":
     ###
     protein = read_file_pdb("data/4m5k.pdb")
     ax = protein.plot()
-    protein.translate(20, [1, 1, 1])
+
+    protein.translate(20, [-1, 1, 1])
     protein.plot(same_plot=ax, color="darkorange")
-    #protein.rotate#
+
+    angle = [34.64101615137755, 54.735610317245346, 45.0]
+    protein.rotate(angle)
+
+    protein.plot(same_plot=ax, color="olive")
     plt.show()
