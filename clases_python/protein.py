@@ -16,7 +16,7 @@ class Protein():
         #for atom in atoms:
             #atom.translate(vector)
 
-    def plot(self):
+    def plot(self, same_plot=False, color="blue"):
 
         x_cor = []
         y_cor = []
@@ -29,14 +29,24 @@ class Protein():
             z_cor.append(z)
 
         # Creating figure
-        fig = plt.figure(figsize=(10, 7))
-        ax = plt.axes(projection="3d")
+        if not same_plot:
+            fig = plt.figure(figsize=(10, 7))
+            ax = plt.axes(projection="3d")
+            ax.scatter3D(x_cor, y_cor, z_cor, color=color)
+            plt.title("simple 3D scatter plot")
+            return ax
+        else:
+            same_plot.scatter3D(x_cor, y_cor, z_cor, color=color)
+            plt.title("simple 3D scatter plot")
+            return same_plot
+
 
         # Creating plot
-        ax.scatter3D(x_cor, y_cor, z_cor, color="green")
-        plt.title("simple 3D scatter plot")
 
-        # show plot
-        plt.show()
+
+    def translate(self, module, direction):
+        for atom in self.atoms:
+            atom.translate(module, direction)
+
 
 

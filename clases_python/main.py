@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+
+
 import clases_python.atom as at
 import clases_python.protein as pt
 
@@ -19,7 +22,22 @@ def read_file_pdb(file):
 
 
 if __name__ == "__main__":
+    ####### COMP CHEM CLASSICA #######
+
+    ####### 1) MOTOR DE MOVER Y ROTAR #####
+
+    ######## 2) SCORING FUNCTION#######
+    #####ENERGIAS : bonding (enlace covalente), nonbonding!!! (enlaces no covalentes),
+    # torsiones (perfil denergia de los romtameros), dihedros () --> funcion!!
+
+
+    #### 3) ##### EN (carga, vanderwals, fuerza entre atomos, ) --> FORCEFIELD!!!!
+    ### abiertos: OPENFF / OPENMM / gaff / gromacs
+    ### comerciales: SCHRODINGER
+    ###
     protein = read_file_pdb("data/4m5k.pdb")
-    protein.plot()
-    #protein.translate([1,1,1])
-    #protein.plot
+    ax = protein.plot()
+    protein.translate(20, [1, 1, 1])
+    protein.plot(same_plot=ax, color="darkorange")
+    #protein.rotate#
+    plt.show()
